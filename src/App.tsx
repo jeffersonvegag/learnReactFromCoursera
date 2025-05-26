@@ -1,22 +1,23 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { Layout } from "@/components/Layout"
+import { HomePage } from "@/screens/HomePage"
+import { Funcion2Page } from "@/screens/Funcion2Page"
 import './App.css'
-import Saludar from './components/Saludo'
-import Perfil from './components/Perfil'
+
 function App() {
-  // const [count, setCount] = useState(0)
-const user={
-  nombre:'Pepito',
-  edad :23,
-  profesion:'Full stack'
-}
   return (
-    <>
-    <Saludar nombre="Jefferson"/>
-    <Perfil nombre={user.nombre} edad={user.edad} profesion={user.profesion}> 
-    </Perfil>
-    </>
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/funcion2" element={<Funcion2Page />} />
+          {/* Aquí puedes agregar más rutas en el futuro */}
+          <Route path="/calendario" element={<div>Página de Calendario (próximamente)</div>} />
+          <Route path="/buscar" element={<div>Página de Búsqueda (próximamente)</div>} />
+          <Route path="/configuracion" element={<div>Página de Configuración (próximamente)</div>} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   )
 }
 
